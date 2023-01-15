@@ -1,16 +1,14 @@
 #' Impute a constant value to correct for missingness
-#' @param recipe
-#' @param ...
-#' @param role 
-#' @param trained
-#' @param constant A numeric value or a possibly named vector with same length
-#' as the result from the selector functions, specifying which constant should
-#' be imputed for each selector
-#' @param id
+#' @param recipe A recipe object. The step will be added to the sequence of operations for this recipe.
+#' @param ... One or more selector functions to choose variables for this step. See selections() for more details.
+#' @param role Unused, include for consistency with other steps.
+#' @param trained A logical to indicate if the quantities for preprocessing have been estimated. Again included for consistency.
+#' @param constant A numeric value or a possibly named vector with same length as the result from the selector functions, specifying which constant should be imputed for each selector
+#' @param skip A logical. Should the step be skipped when the recipe is baked by bake()? While all operations are baked when prep() is run, some operations may not be able to be conducted on new data (e.g. processing the outcome variable(s)). Care should be taken when using skip = FALSE.
+#' @param id A character string that is unique to this step to identify it.
 #' @author Bijaelo
 #' @description This method can be used for constant imputation.
-#' @note taken from https://github.com/tidymodels/recipes/issues/473, edited by
-#' me to make it work.
+#' @note taken from https://github.com/tidymodels/recipes/issues/473, edited by me to make it work.
 #' @export
 #' @importFrom recipes prep bake rand_id
 step_impute_constant <- function(

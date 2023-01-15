@@ -15,18 +15,25 @@ step_impute_constant(
 )
 }
 \arguments{
-\item{role}{}
+\item{recipe}{A recipe object. The step will be added to the sequence of operations for this recipe.}
 
-\item{constant}{A numeric value or a possibly named vector with same length
-as the result from the selector functions, specifying which constant should
-be imputed for each selector}
+\item{...}{One or more selector functions to choose variables for this step. See selections() for more details.}
+
+\item{role}{Unused, include for consistency with other steps.}
+
+\item{trained}{A logical to indicate if the quantities for preprocessing have been estimated. Again included for consistency.}
+
+\item{constant}{A numeric value or a possibly named vector with same length as the result from the selector functions, specifying which constant should be imputed for each selector}
+
+\item{skip}{A logical. Should the step be skipped when the recipe is baked by bake()? While all operations are baked when prep() is run, some operations may not be able to be conducted on new data (e.g. processing the outcome variable(s)). Care should be taken when using skip = FALSE.}
+
+\item{id}{A character string that is unique to this step to identify it.}
 }
 \description{
 This method can be used for constant imputation.
 }
 \note{
-taken from https://github.com/tidymodels/recipes/issues/473, edited by
-me to make it work.
+taken from https://github.com/tidymodels/recipes/issues/473, edited by me to make it work.
 }
 \author{
 Bijaelo

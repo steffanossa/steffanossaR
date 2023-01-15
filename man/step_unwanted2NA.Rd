@@ -17,21 +17,27 @@ step_unwanted2NA(
 )
 }
 \arguments{
-\item{values}{Single value or vector containing values wanted in columns
-set.}
+\item{recipe}{A recipe object. The step will be added to the sequence of operations for this recipe.}
 
-\item{wanted}{Boolean. Turns everything not in \emph{values} into NAs if \emph{TRUE}.
-Turn everything in \emph{values} into NAs if \emph{FALSE}.}
+\item{...}{One or more selector functions to choose variables for this step. See selections() for more details.}
+
+\item{role}{Unused, include for consistency with other steps.}
+
+\item{skip}{A logical. Should the step be skipped when the recipe is baked by bake()? While all operations are baked when prep() is run, some operations may not be able to be conducted on new data (e.g. processing the outcome variable(s)). Care should be taken when using skip = FALSE.}
+
+\item{values}{Single value or vector containing values wanted in columns set.}
+
+\item{wanted}{Boolean. Turns everything not in \emph{values} into NAs if \emph{TRUE}. Turn everything in \emph{values} into NAs if \emph{FALSE}.}
+
+\item{trained}{A logical to indicate if the quantities for preprocessing have been estimated. Again included for consistency.}
+
+\item{id}{A character string that is unique to this step to identify it.}
 }
 \description{
-This method can be used in order to cleanse columns from values
-that are unwanted.
+This method can be used in order to cleanse columns from values that are unwanted.
 }
 \note{
-I think it's quite cool.
-
-IMPORTANT: use prep(strings_as_factors = FALSE) when dealing with chr
-columns! Otherwise you will end up with chr columns turned to int!
+IMPORTANT: use prep(strings_as_factors = FALSE) when dealing with chr columns! Otherwise you will end up with chr columns turned to int!
 }
 \author{
 steffanossa

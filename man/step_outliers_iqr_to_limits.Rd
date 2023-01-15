@@ -14,10 +14,21 @@ step_outliers_iqr_to_limits(
   id = recipes::rand_id("outliers_iqr_to_limits")
 )
 }
+\arguments{
+\item{recipe}{A recipe object. The step will be added to the sequence of operations for this recipe.}
+
+\item{...}{One or more selector functions to choose variables for this step. See selections() for more details.}
+
+\item{role}{Unused, include for consistency with other steps.}
+
+\item{skip}{A logical. Should the step be skipped when the recipe is baked by bake()? While all operations are baked when prep() is run, some operations may not be able to be conducted on new data (e.g. processing the outcome variable(s)). Care should be taken when using skip = FALSE.}
+
+\item{trained}{A logical to indicate if the quantities for preprocessing have been estimated. Again included for consistency.}
+
+\item{id}{A character string that is unique to this step to identify it.}
+}
 \description{
-This method can be used in order to identify outliers by using
-the interquartile range rule and replace them with min/max values of its
-range.
+This method can be used in order to identify outliers by using the interquartile range rule and replace them with min/max values of its range.
 }
 \note{
 I think it's quite cool.

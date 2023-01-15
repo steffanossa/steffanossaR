@@ -1,14 +1,15 @@
 #' Turn unwanted values into NAs
 #' @author steffanossa
-#' @param values Single value or vector containing values wanted in columns
-#' set.
-#' @param wanted Boolean. Turns everything not in *values* into NAs if *TRUE*.
-#'                         Turn everything in *values* into NAs if *FALSE*.
-#' @description This method can be used in order to cleanse columns from values
-#' that are unwanted.
-#' @note I think it's quite cool.
-#' @note IMPORTANT: use prep(strings_as_factors = FALSE) when dealing with chr
-#' columns! Otherwise you will end up with chr columns turned to int!
+#' @param values Single value or vector containing values wanted in columns set.
+#' @param wanted Boolean. Turns everything not in *values* into NAs if *TRUE*. Turn everything in *values* into NAs if *FALSE*.
+#' @param recipe A recipe object. The step will be added to the sequence of operations for this recipe.
+#' @param ... One or more selector functions to choose variables for this step. See selections() for more details.
+#' @param role Unused, include for consistency with other steps.
+#' @param trained A logical to indicate if the quantities for preprocessing have been estimated. Again included for consistency.
+#' @param skip A logical. Should the step be skipped when the recipe is baked by bake()? While all operations are baked when prep() is run, some operations may not be able to be conducted on new data (e.g. processing the outcome variable(s)). Care should be taken when using skip = FALSE.
+#' @param id A character string that is unique to this step to identify it.
+#' @description This method can be used in order to cleanse columns from values that are unwanted.
+#' @note IMPORTANT: use prep(strings_as_factors = FALSE) when dealing with chr columns! Otherwise you will end up with chr columns turned to int!
 #' @export
 #' 
 #' @importFrom recipes prep bake rand_id
