@@ -2,9 +2,8 @@
 
 S3method(bake,step_unwanted2NA)
 S3method(prep,step_unwanted2NA)
-export(above)
 export(load2)
-export(see)
+export(registerPar)
 export(step_impute_constant)
 export(step_outliers_iqr_to_limits)
 export(step_unwanted2NA)

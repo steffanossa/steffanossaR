@@ -11,7 +11,7 @@ registerPar <- function() {
       n_cores <- parallel::detectCores()
       DoMC::registerDoMC(n_cores)
     } else {
-      #' see above
+      # see above
       n_cores <- parallel::detectCores() - 1
       DoMC::registerDoMC(n_cores - 1)
     }
