@@ -25,8 +25,8 @@ be imputed for each selector}
 This method can be used for constant imputation.
 }
 \note{
-taken from https://github.com/tidymodels/recipes/issues/473, edited to
-make it work.
+taken from https://github.com/tidymodels/recipes/issues/473, edited by
+me to make it work.
 }
 \author{
 Bijaelo
