@@ -46,7 +46,7 @@ step_impute_constant <- function(
 #' @export
 prep.step_impute_constant <- function(x, training, info = NULL, ...){
   # Import the names that should be transformed.
-  col_names <- recipes::recipes_eval_select(terms = x$terms, info = info)
+  col_names <- recipes::recipes_eval_select(x$terms, info = info)
   # col_names <- recipes::terms_select(terms = x$terms, info = info)
   # Make sure all types are numeric
   recipes::check_type(training[, col_names], quant = TRUE)
