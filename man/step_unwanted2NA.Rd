@@ -13,7 +13,7 @@ step_unwanted2NA(
   wanted = TRUE,
   trained = FALSE,
   columns = NULL,
-  id = rand_id("unwanted2NA")
+  id = recipes::rand_id("unwanted2NA")
 )
 }
 \arguments{
