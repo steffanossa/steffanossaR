@@ -68,7 +68,7 @@ outliers_to_limits <- function(x, args = NULL) {
                        x)))
 }
 
-### prep
+#' @export
 prep.step_outliers_iqr_to_limits <- function(x, training, info = NULL, ...) {
   col_names <- recipes::recipes_eval_select(x$terms, training, info = info)
 
@@ -84,7 +84,7 @@ prep.step_outliers_iqr_to_limits <- function(x, training, info = NULL, ...) {
   )
 }
 
-### bake
+#' @export
 bake.step_outliers_iqr_to_limits <- function(object,
                                              new_data,
                                              ...) {

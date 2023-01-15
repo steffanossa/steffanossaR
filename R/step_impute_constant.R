@@ -45,6 +45,7 @@ step_impute_constant <- function(
     )
   )
 }
+#' @export
 prep.step_impute_constant <- function(x, training, info = NULL, ...){
   # Import the names that should be transformed.
   col_names <- recipes::terms_select(terms = x$terms, info = info) 
@@ -72,6 +73,7 @@ prep.step_impute_constant <- function(x, training, info = NULL, ...){
     id = x$id
   )
 }
+#' @export
 bake.step_impute_constant <- function(object, new_data, ...){
   # Import the variables that should be baked
   vars <- names(object$constant)
