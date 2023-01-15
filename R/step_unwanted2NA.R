@@ -11,7 +11,7 @@
 #' columns! Otherwise you will end up with chr columns turned to int!
 #' @export
 #' 
-#' #' @importFrom recipes prep bake rand_id
+#' @importFrom recipes prep bake rand_id
 step_unwanted2NA <-
   function(recipe,
            ...,
