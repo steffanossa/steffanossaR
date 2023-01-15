@@ -11,7 +11,7 @@ step_impute_constant(
   trained = FALSE,
   constant = 0,
   skip = FALSE,
-  id = rand_id("impute_constant")
+  id = recipes::rand_id("impute_constant")
 )
 }
 \arguments{

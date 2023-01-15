@@ -11,7 +11,7 @@ step_outliers_iqr_to_limits(
   skip = TRUE,
   trained = FALSE,
   columns = NULL,
-  id = rand_id("outliers_iqr_to_limits")
+  id = recipes::rand_id("outliers_iqr_to_limits")
 )
 }
 \description{

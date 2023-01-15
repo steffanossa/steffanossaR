@@ -5,6 +5,7 @@
 #' range.
 #' @note I think it's quite cool.
 #' @export
+#' @importFrom recipes prep bake rand_id
 step_outliers_iqr_to_limits <-
   function(recipe,
            ...,
@@ -12,11 +13,11 @@ step_outliers_iqr_to_limits <-
            skip    = TRUE,
            trained = FALSE,
            columns = NULL,
-           id = rand_id("outliers_iqr_to_limits")) {
+           id = recipes::rand_id("outliers_iqr_to_limits")) {
 
-    terms <- ellipse_check(...)
+    terms <- recipes::ellipse_check(...)
 
-    add_step(
+    recipes::add_step(
       recipe,
       step_outliers_iqr_to_limits_new(
         terms   = terms,
@@ -37,7 +38,7 @@ step_outliers_iqr_to_limits_new <-
            trained,
            columns,
            id) {
-    step(
+    recipes::step(
       subclass = "outliers_iqr_to_limits",
       terms    = terms,
       role     = role,
@@ -69,9 +70,9 @@ outliers_to_limits <- function(x, args = NULL) {
 
 ### prep
 prep.step_outliers_iqr_to_limits <- function(x, training, info = NULL, ...) {
-  col_names <- recipes_eval_select(x$terms, training, info = info)
+  col_names <- recipes::recipes_eval_select(x$terms, training, info = info)
 
-  check_type(training[, col_names], quant = TRUE)
+  recipes::check_type(training[, col_names], quant = TRUE)
 
   step_outliers_iqr_to_limits_new(
     terms   = x$terms,
@@ -97,7 +98,7 @@ bake.step_outliers_iqr_to_limits <- function(object,
 print.step_outliers_iqr_to_limits <-
   function(x, width = max(20, options()$width - 35), ...) {
     cat("Replacing values outide the IQR with min/max values in ", sep = "")
-    printer(
+    recipes::printer(
 
       untr_obj = x$terms,
 

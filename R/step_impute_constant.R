@@ -12,6 +12,7 @@
 #' @note taken from https://github.com/tidymodels/recipes/issues/473, edited by
 #' me to make it work.
 #' @export
+#' @importFrom recipes prep bake rand_id
 step_impute_constant <- function(
     recipe, 
     ..., 
@@ -19,9 +20,9 @@ step_impute_constant <- function(
     trained = FALSE,
     constant = 0,
     skip = FALSE,
-    id = rand_id("impute_constant")){
+    id = recipes::rand_id("impute_constant")){
   # Import terms
-  terms <- ellipse_check(...) 
+  terms <- recipes::ellipse_check(...) 
   # Check that "constant" is the correct format (first vector, then numeric)
   if(is.list(constant)){
     if(any(lengths(constant) != 1))
@@ -31,7 +32,7 @@ step_impute_constant <- function(
   # After conversion from list, the constant should still be a single numeric value
   if(!is.numeric(constant))
     rlang::abort('`constant` should be a single numeric vector or a possibly named vector or list with the same length as the selector function.') 
-  add_step(
+  recipes::add_step(
     recipe, 
     step(
       subclass = "impute_constant", 
@@ -46,7 +47,7 @@ step_impute_constant <- function(
 }
 prep.step_impute_constant <- function(x, training, info = NULL, ...){
   # Import the names that should be transformed.
-  col_names <- terms_select(terms = x$terms, info = info) 
+  col_names <- recipes::terms_select(terms = x$terms, info = info) 
   # Make sure all types are numeric
   recipes::check_type(training[, col_names], quant = TRUE)
   if(!is.null(nm <- names(x$constant))){
@@ -61,7 +62,7 @@ prep.step_impute_constant <- function(x, training, info = NULL, ...){
       x$constant <- rep(x$constant, length(col_names))
     names(x$constant) <- col_names
   }
-  step(
+  recipes::step(
     subclass = "impute_constant", 
     terms = x$terms,
     role = x$role,
@@ -86,7 +87,7 @@ bake.step_impute_constant <- function(object, new_data, ...){
 print.step_impute_constant <-
   function(x, width = max(20, options()$width - 35), ...) {
     cat("Replacing NAs with given constant in", sep = "")
-    printer(
+    recipes::printer(
       
       untr_obj = x$terms,
       
