@@ -21,11 +21,11 @@ step_unwanted2NA <-
            wanted = TRUE,
            trained = FALSE,
            columns = NULL,
-           id = rand_id("unwanted2NA")) {
+           id = recipes::rand_id("unwanted2NA")) {
 
     terms <- ellipse_check(...)
 
-    add_step(
+    recipes::add_step(
       recipe,
       step_unwanted2NA_new(
         terms   = terms,
@@ -50,7 +50,7 @@ step_unwanted2NA_new <-
            trained,
            columns,
            id) {
-    step(
+    recipes::step(
       subclass = "unwanted2NA",
       terms    = terms,
       role     = role,
@@ -67,7 +67,7 @@ step_unwanted2NA_new <-
 
 #' @export
 prep.step_unwanted2NA <- function(x, training, info = NULL, ...) {
-  col_names <- recipes_eval_select(x$terms, training, info = info)
+  col_names <- recipes::recipes_eval_select(x$terms, training, info = info)
 
   #check_type(training[, col_names], quant = TRUE)
 
@@ -103,7 +103,7 @@ bake.step_unwanted2NA <- function(object,
 print.step_unwanted2NA <-
   function(x, width = max(20, options()$width - 35), ...) {
     cat("Replacing unwanted values with NAs in ", sep = "")
-    printer(
+    recipes::printer(
 
       untr_obj = x$terms,
 
