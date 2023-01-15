@@ -34,7 +34,7 @@ step_impute_constant <- function(
     rlang::abort('`constant` should be a single numeric vector or a possibly named vector or list with the same length as the selector function.') 
   recipes::add_step(
     recipe, 
-    step(
+    recipes::step(
       subclass = "impute_constant", 
       terms = terms,
       trained = trained,
