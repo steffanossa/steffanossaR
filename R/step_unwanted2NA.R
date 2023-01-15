@@ -63,7 +63,7 @@ step_unwanted2NA_new <-
 
 
 
-### prep
+#' @export
 prep.step_unwanted2NA <- function(x, training, info = NULL, ...) {
   col_names <- recipes_eval_select(x$terms, training, info = info)
 
@@ -81,7 +81,7 @@ prep.step_unwanted2NA <- function(x, training, info = NULL, ...) {
   )
 }
 
-### bake
+#' @export
 bake.step_unwanted2NA <- function(object,
                                 new_data,
                                 ...) {
