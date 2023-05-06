@@ -6,7 +6,7 @@ library(devtools)
 install_github("steffanossa/steffanossaR")
 ```
 
-## Step-functions to be used with *recipes*
+## Step-functions to be used with *recipes* from the *tidymodels* package
 ### step_impute_constant()
 Impute constant values.
 
@@ -23,7 +23,7 @@ Extract *SS loadings*, *Proportion Var* and *Cumulative Var* from *factanal()* o
 ### load2()
 Load data and set its variable's name in one go.
 <details>
-  <summary>(<i>click to show/hide the characteristics of the data set</i>)</summary>
+  <summary>(<i>click to show/hide example usage</i>)</summary>
   <!-- have to be followed by an empty line! -->
   
   ```r
