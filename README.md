@@ -10,7 +10,7 @@ install_github("steffanossa/steffanossaR")
 ### step_impute_constant()
 Impute constant values.
 
-### step_outliers_iqr__to_limits()
+### step_outliers_iqr_to_limits()
 Identify outliers with the *IQR rule* and replace them with the limits of said rule.
 
 ### step_unwanted2NA()
