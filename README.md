@@ -1,5 +1,10 @@
 # steffanossaR
 A tiny R package that probably won't survive that long :)
+# Installation
+```{r}
+library(devtools)
+install_github("steffanossa/steffanossaR")
+```
 
 ## Step-functions to be used with *recipes*
 ### step_impute_constant()
